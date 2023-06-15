@@ -1,10 +1,15 @@
 Twisted bindings for 0MQ
 ========================
 
-![python versions](https://img.shields.io/pypi/pyversions/txZMQ-ng.svg)
-![version](https://img.shields.io/pypi/v/txZMQ-ng)
-![license](https://img.shields.io/pypi/l/txZMQ-ng)
-![downloads](https://img.shields.io/pypi/dw/txZMQ-ng)
+.. image:: https://img.shields.io/pypi/pyversions/txZMQ-ng.svg
+
+.. image:: https://img.shields.io/pypi/v/txZMQ-ng
+
+.. image:: https://img.shields.io/pypi/l/txZMQ-ng
+
+.. image:: https://img.shields.io/pypi/dw/txZMQ-ng
+
+.. image:: https://img.shields.io/pypi/pyversions/txZMQ-ng.svg)
 
 Introduction
 ------------
