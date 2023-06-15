@@ -45,9 +45,13 @@ class ZmqSubConnection(ZmqConnection):
 
         Function may be called several times.
 
+        Tag must be either str or bytes for newer versions of PyZMQ.
+
         :param tag: message tag
         :type tag: str
         """
+        if isinstance(tag, str):
+            tag = tag.encode()
         self.socket.setsockopt(constants.SUBSCRIBE, tag)
 
     def unsubscribe(self, tag):
