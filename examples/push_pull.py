@@ -41,11 +41,11 @@ if options.mode == "push":
 
     def produce():
         data = [str(time.time()), socket.gethostname()]
-        print "producing %r" % data
+        print("producing %r" % data)
         try:
             s.push(data)
         except zmq.error.Again:
-            print "Skipping, no pull consumers..."
+            print("Skipping, no pull consumers...")
 
         reactor.callLater(1, produce)
 
@@ -54,7 +54,7 @@ else:
     s = ZmqPullConnection(zf, e)
 
     def doPrint(message):
-        print "consuming %r" % (message,)
+        print("consuming %r" % (message,))
 
     s.onPull = doPrint
 

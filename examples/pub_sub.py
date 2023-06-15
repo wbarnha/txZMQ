@@ -37,7 +37,7 @@ if options.mode == "publisher":
 
     def publish():
         data = str(time.time())
-        print "publishing %r" % data
+        print("publishing %r" % data)
         s.publish(data)
 
         reactor.callLater(1, publish)
@@ -48,7 +48,7 @@ else:
     s.subscribe("")
 
     def doPrint(*args):
-        print "message received: %r" % (args, )
+        print("message received: %r" % (args, ))
 
     s.gotMessage = doPrint
 
