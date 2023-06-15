@@ -65,8 +65,8 @@ class ZmqRouterDealerTwoFactoryConnectionTestCase(unittest.TestCase):
         reactor.callLater(0, self.dealer.sendMsg, b'stop')
 
         def checkResults(_):
-            self.failUnlessEqual(self.dealer.message_count,
-                                 3 * self.REQUEST_COUNT)
-            self.failUnlessEqual(self.router.message_count, self.REQUEST_COUNT)
+            self.assertEqual(self.dealer.message_count,
+                             3 * self.REQUEST_COUNT)
+            self.assertEqual(self.router.message_count, self.REQUEST_COUNT)
 
         return self.dealer.d.addCallback(checkResults)

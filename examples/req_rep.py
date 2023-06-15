@@ -40,7 +40,7 @@ if options.mode == "req":
         # data = [str(time.time()), socket.gethostname()]
         data = str(time.time())
 
-        print "Requesting %r" % data
+        print("Requesting %r" % data)
         try:
             d = s.sendMsg(data, timeout=0.95)
 
@@ -49,12 +49,12 @@ if options.mode == "req":
 
             def onTimeout(fail):
                 fail.trap(ZmqRequestTimeoutError)
-                print "Timeout on request, is reply server running?"
+                print("Timeout on request, is reply server running?")
 
             d.addCallback(doPrint).addErrback(onTimeout)
 
         except zmq.error.Again:
-            print "Skipping, no pull consumers..."
+            print("Skipping, no pull consumers...")
 
         reactor.callLater(1, produce)
 
@@ -63,7 +63,7 @@ else:
     s = ZmqREPConnection(zf, e)
 
     def doPrint(messageId, message):
-        print "Replying to %s, %r" % (messageId, message)
+        print("Replying to %s, %r" % (messageId, message))
         s.reply(messageId, "%s %r " % (messageId, message))
 
     s.gotMessage = doPrint

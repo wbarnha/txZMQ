@@ -62,7 +62,7 @@ class ZmqConnectionTestCase(unittest.TestCase):
         def check(ignore):
             result = getattr(r, 'messages', [])
             expected = [[b'abcd']]
-            self.failUnlessEqual(
+            self.assertEqual(
                 result, expected, "Message should have been received")
 
         return _wait(0.01).addCallback(check)
@@ -72,7 +72,7 @@ class ZmqConnectionTestCase(unittest.TestCase):
                     "[ZmqEndpoint(type='bind', address='inproc://#1')])")
         result = ZmqTestReceiver(
             self.factory, ZmqEndpoint(ZmqEndpointType.bind, "inproc://#1"))
-        self.failUnlessEqual(expected, repr(result))
+        self.assertEqual(expected, repr(result))
 
     def test_send_recv(self):
         r = ZmqTestReceiver(
@@ -85,7 +85,7 @@ class ZmqConnectionTestCase(unittest.TestCase):
         def check(ignore):
             result = getattr(r, 'messages', [])
             expected = [[b'abcd']]
-            self.failUnlessEqual(
+            self.assertEqual(
                 result, expected, "Message should have been received")
 
         return _wait(0.01).addCallback(check)
@@ -104,7 +104,7 @@ class ZmqConnectionTestCase(unittest.TestCase):
         def check(ignore):
             result = getattr(r, 'messages', [])
             expected = [[str(i).encode()] for i in range(100)]
-            self.failUnlessEqual(
+            self.assertEqual(
                 result, expected, "Messages should have been received")
 
         return _wait(0.01).addCallback(check)
@@ -122,7 +122,7 @@ class ZmqConnectionTestCase(unittest.TestCase):
         def check(ignore):
             result = getattr(r, 'messages', [])
             expected = [[b'0' * 10000, b'1' * 10000]]
-            self.failUnlessEqual(
+            self.assertEqual(
                 result, expected, "Messages should have been received")
 
         return _wait(0.01).addCallback(check)
