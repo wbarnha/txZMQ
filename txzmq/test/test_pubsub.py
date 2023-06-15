@@ -75,7 +75,7 @@ class ZmqConnectionTestCase(unittest.TestCase):
         def check(ignore):
             result = getattr(r, 'messages', [])
             expected = [[b'tag1', b'abcd'], [b'tag2', b'efgh']]
-            self.failUnlessEqual(
+            self.assertEqual(
                 result, expected, "Message should have been received")
 
         return _wait(0.01).addCallback(publish) \
@@ -98,7 +98,7 @@ class ZmqConnectionTestCase(unittest.TestCase):
         def check(ignore):
             result = getattr(r, 'messages', [])
             expected = [[b'tag1', b'abcd']]
-            self.failUnlessEqual(
+            self.assertEqual(
                 result, expected, "Message should have been received")
 
         return _wait(0.01).addCallback(publish) \
@@ -120,7 +120,7 @@ class ZmqConnectionTestCase(unittest.TestCase):
         def check(ignore):
             result = getattr(r, 'messages', [])
             expected = [[b'tag1', b'abcd']]
-            self.failUnlessEqual(
+            self.assertEqual(
                 result, expected, "Message should have been received")
 
         return _wait(0.2).addCallback(publish) \
@@ -148,7 +148,7 @@ class ZmqConnectionTestCase(unittest.TestCase):
         def check(ignore):
             result = getattr(r, 'messages', [])
             expected = [[b'tag1', b'111'], [b'tag2', b'222']]
-            self.failUnlessEqual(
+            self.assertEqual(
                 sorted(result), expected, "Message should have been received")
 
         return _wait(0.1).addCallback(publish) \
