@@ -103,6 +103,7 @@ class ZmqREQREPConnectionTestCase(unittest.TestCase):
 
     def test_cleanup_requests(self):
         """The request dict is cleanedup properly."""
+
         def check(ignore):
             self.assertEqual(self.s._requests, {})
             self.assertEqual(self.s.UUID_POOL_GEN_SIZE, len(self.s._uuids))
@@ -116,11 +117,11 @@ class ZmqREQREPConnectionTestCase(unittest.TestCase):
         def check_requests(_):
             self.assertEqual(self.s._requests, {})
             self.assertEqual(self.s.UUID_POOL_GEN_SIZE,
-                                 len(self.s._uuids) + 1)
+                             len(self.s._uuids) + 1)
 
         return d.addCallbacks(lambda _: self.fail("Should have errored"),
                               lambda fail: fail.trap(
-                              "twisted.internet.defer.CancelledError")) \
+                                  "twisted.internet.defer.CancelledError")) \
             .addCallback(check_requests) \
             .addCallback(lambda _: _wait(0.01))
 
@@ -131,11 +132,11 @@ class ZmqREQREPConnectionTestCase(unittest.TestCase):
         def check_requests(_):
             self.assertEqual(self.s._requests, {})
             self.assertEqual(self.s.UUID_POOL_GEN_SIZE,
-                                 len(self.s._uuids) + 1)
+                             len(self.s._uuids) + 1)
 
         return d.addCallbacks(lambda _: self.fail("Should have errored"),
                               lambda fail: fail.trap(
-                              "twisted.internet.defer.CancelledError")) \
+                                  "twisted.internet.defer.CancelledError")) \
             .addCallback(check_requests) \
             .addCallback(lambda _: _wait(0.01))
 

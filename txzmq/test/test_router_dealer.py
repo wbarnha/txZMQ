@@ -66,7 +66,7 @@ class ZmqRouterDealerTwoFactoryConnectionTestCase(unittest.TestCase):
 
         def checkResults(_):
             self.assertEqual(self.dealer.message_count,
-                                 3 * self.REQUEST_COUNT)
+                             3 * self.REQUEST_COUNT)
             self.assertEqual(self.router.message_count, self.REQUEST_COUNT)
 
         return self.dealer.d.addCallback(checkResults)
