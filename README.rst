@@ -9,7 +9,7 @@ Twisted bindings for 0MQ
 
 .. image:: https://img.shields.io/pypi/dw/txZMQ-ng
 
-.. image:: https://img.shields.io/pypi/pyversions/txZMQ-ng.svg)
+.. image:: https://img.shields.io/pypi/pyversions/txZMQ-ng.svg
 
 Introduction
 ------------
